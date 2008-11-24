@@ -8,7 +8,8 @@
 #
 
 import applesms
-
+from pyglet.gl import *
+from pyglet import window
 
 class Player:
 	def __init__(self, x, y, bounds):
@@ -55,7 +56,7 @@ class Game:
 	def __init__(self):
 		self.game_window = window.Window(width=400, height=500, caption='Bucket V.0')
 		x,y = self.game_window.get_size()
-		bounds = ['LEFT':0, 'RIGHT':x, 'TOP':y, 'BOTTOM':0]
+		bounds = {'LEFT':0, 'RIGHT':x, 'TOP':y, 'BOTTOM':0}
 		self.player = Player(x, y, bounds)
 	
 	def update_game_state(self):
