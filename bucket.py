@@ -11,5 +11,11 @@ import applesms
 from pyglet.gl import *
 from pyglet import window
 
+def update_player():
+	x, y, z = applesms.getcoords()
 
+
+def main():
+	"""Game Loop"""
+	pass
 
