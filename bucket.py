@@ -9,6 +9,7 @@
 
 import applesms
 import pyglet
+import random
 from pyglet.gl import *
 from pyglet import window
 
@@ -25,9 +26,16 @@ def main():
 	#Initialize player and game
 	player_img = pyglet.image.load('./assets/at.png')
 	player = pyglet.sprite.Sprite(player_img)
+	score = 0
+
+	## Keep Track of water drops
+	water_drops_tracker = []
+	water_drops_batch = pyglet.graphics.Batch()
+	water_drop_img = pyglet.image.load('./assets/star.png')
 
 	## Game Window ##
 	main_window = window.Window(width=600, height=500, caption='Bucket V0.2')
+	window_width, window_height = main_window.get_size()
 
 
 	## Game Loop ##
@@ -37,16 +45,18 @@ def main():
 		glClear(GL_COLOR_BUFFER_BIT)
 		
 		## Create Water Drops ##
+		# Random Position for a created drop of water
+		drop_x = random.randint(0, window_width)
+		drop_y = random.randint(window_height/2, window_height)
+		
+		water_drops_tracker.append(pyglet.sprite.Sprite(water_drop_img, x=drop_x, y=drop_y, batch=water_drops_batch))
 
-		# Randomly Create Water Drops
-		# Need to keep track of their positions somehow...
 
 		## Update Water Drops ##
 		
 		# Update their position 
 
 		## Update player ##
-		window_width, window_height = main_window.get_size()
 		x, y, z = applesms.coords()
 		player_x, player_y = player.position
 
@@ -68,6 +78,7 @@ def main():
 		player.draw()
 
 		## Draw Water Drops ##
+		water_drops_batch.draw()
 
 		## Score ##
 

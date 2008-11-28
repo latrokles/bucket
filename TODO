@@ -1,0 +1,8 @@
+TODO
+====
+
+[X] Implement code to create and draw the drops
+[ ] Write code to update a drop's position
+[ ] Devise a way to track the position of a drop (for collision detection)
+[ ] Implement collision detection routine
+[ ] Fix the probability distribution for the creation of the drops
