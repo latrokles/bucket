@@ -55,6 +55,13 @@ def main():
 		## Update Water Drops ##
 		
 		# Update their position 
+		for each_drop in water_drops_tracker:
+			drop_x, drop_y = each_drop.position
+
+			if drop_y < 0:
+				water_drops_tracker.remove(each_drop)
+			else:
+				each_drop.set_position(drop_x, drop_y-5)
 
 		## Update player ##
 		x, y, z = applesms.coords()
