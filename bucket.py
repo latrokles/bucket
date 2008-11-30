@@ -14,9 +14,6 @@ from pyglet.gl import *
 from pyglet import window
 from pyglet import font
 
-def create_drops(some_number):
-	raise NotImplementedError
-
 def main():
 	"""Game Loop"""
 	#Initialize player and game
@@ -32,6 +29,7 @@ def main():
 
 	## Game Window ##
 	main_window = window.Window(width=600, height=500, caption='Bucket V0.2')
+	back_img = pyglet.image.load('./assets/background.png')
 	window_width, window_height = main_window.get_size()
 
 	## Game Loop ##
@@ -39,15 +37,13 @@ def main():
 		main_window.dispatch_events()
 		glLoadIdentity()
 		glClear(GL_COLOR_BUFFER_BIT)
-		
+		back_img.blit(0, 0)
 		## Create Water Drops ##
 		# Random Position for a created drop of water
 		drop_x = random.randint(0, window_width)
-		drop_y = random.randint(window_height/2, window_height)
-		
+		drop_y = random.randint(window_height, window_height+200)
 		water_drops_tracker.append(pyglet.sprite.Sprite(water_drop_img, x=drop_x, y=drop_y, batch=water_drops_batch))
-
-
+		
 		## Update player ##
 		x, y, z = applesms.coords()
 		#print "(%d, %d, %d)" % (x, y, z )
@@ -77,7 +73,6 @@ def main():
 
 		## Draw the player ##
 		player.draw()
-
 		## Draw Water Drops ##
 		water_drops_batch.draw()
 
