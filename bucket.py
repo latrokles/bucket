@@ -28,7 +28,7 @@ def main():
 	## Keep Track of water drops
 	water_drops_tracker = []
 	water_drops_batch = pyglet.graphics.Batch()
-	water_drop_img = pyglet.image.load('./assets/star.png')
+	water_drop_img = pyglet.image.load('./assets/drop_sm.png')
 
 	## Game Window ##
 	main_window = window.Window(width=600, height=500, caption='Bucket V0.2')
