@@ -28,9 +28,9 @@ def main():
 	water_drop_img = pyglet.image.load('./assets/drop_sm.png')
 
 	missed_drops = 0	#water not caught
-	#water_pool_img = pyglet.image.load('./assets/pool.png')
-	#pool_x = 0
-	#pool = pyglet.sprite.Sprite(water_pool_img, x=pool_x)
+	#water_flood_img = pyglet.image.load('./assets/flood.png')
+	#flood_x = 0
+	#flood = pyglet.sprite.Sprite(water_flood_img, x=flood_x)
 
 	## Game Window ##
 	main_window = window.Window(width=600, height=500, caption='Bucket V0.2')
@@ -82,8 +82,8 @@ def main():
 
 		## Update and Draw the water accumulated ##
 		#if missed_drops%2 == 0:
-		#	pool_x += 5
-		#pool.draw()
+		#	flood_x += 5
+		#flood.draw()
 
 		## Draw the player ##
 		player.draw()
